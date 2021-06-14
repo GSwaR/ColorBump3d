@@ -5,55 +5,56 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-    public float Value;
-    private Vector3 startPoint;
-    private Vector3 middlePoint;
-    public Camera camera;
-    public GameObject Player;
+    [SerializeField] private new Rigidbody rigidbody;
+    [SerializeField] private float value;
+    [SerializeField] private float fieldWidgth;
+    [SerializeField] private float cameraDistance;
 
-    private void OnMouseDown()
+    private Vector2 lastMousePosition = Vector2.zero;
+
+    private void FixedUpdate()
     {
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit raycast;
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 mousePosition = Input.mousePosition;
 
-        Physics.Raycast(ray, out raycast);
-        startPoint = raycast.point;
-        middlePoint = raycast.point;
+            if (lastMousePosition == Vector2.zero)
+            {
+                lastMousePosition = mousePosition;
+            }
+
+            Vector2 delta = mousePosition - lastMousePosition;
+            lastMousePosition = mousePosition;
+
+            Vector3 force = new Vector3(delta.x, 0, delta.y) * value;
+
+            rigidbody.AddForce(force);
+        }
+        else
+        {
+            lastMousePosition = Vector2.zero;
+        }
     }
 
-    private void OnMouseDrag()
+    private void LateUpdate()
     {
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit raycast;
+        Vector3 position = transform.position;
 
-        Physics.Raycast(ray, out raycast);
-        Vector3 endPoint = raycast.point;
+        if (transform.position.x < -fieldWidgth)
+        {
+            position.x = -fieldWidgth;
+        }
+        else if (transform.position.x > fieldWidgth)
+        {
+            position.x = fieldWidgth;
+        }
 
-        Vector3 direction = endPoint - middlePoint;
+        if (transform.position.z < Camera.main.transform.position.z + cameraDistance)
+        {
+            position.z = Camera.main.transform.position.z + cameraDistance;
+        }
 
-        int posZ = (int)direction.z;
-        direction.Normalize();
+        transform.position = position;
 
-        Player.GetComponent<Rigidbody>().AddForce(direction* Value);
-        middlePoint = raycast.point;
-    }
-
-    private void OnMouseUp()
-    {
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit raycast;
-
-        Physics.Raycast(ray, out raycast);
-        Vector3 endPoint = raycast.point;
-
-        Vector3 direction = startPoint - endPoint;
-
-        int posZ = (int)direction.z;
-        direction.Normalize();
-
-        Debug.Log(direction.z);
-
-        Player.GetComponent<Rigidbody>().AddForce(direction* Value);
-        startPoint = raycast.point;
     }
 }

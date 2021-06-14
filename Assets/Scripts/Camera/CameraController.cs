@@ -4,26 +4,11 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float Value;
-    public GameObject Player;
+    [SerializeField] private float value;
 
     private void FixedUpdate()
     {
-
-        Vector3 posCamera = new Vector3(0, gameObject.transform.position.y, gameObject.transform.position.z + Value);
+        Vector3 posCamera = new Vector3(0, gameObject.transform.position.y, gameObject.transform.position.z + value);
         gameObject.transform.position = posCamera;
-
-        Vector3 posPlayer = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z + Value);
-        Player.transform.position = posPlayer;
-
-        if (posPlayer.z - posCamera.z > 0)
-        {
-            posPlayer.z += Value;
-            Player.transform.position = posPlayer;
-        }
-        else
-        {
-
-        }
     }
 }

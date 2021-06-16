@@ -6,6 +6,8 @@ public class SectionManager : MonoBehaviour
 {
     public Section[] Sections;
     [SerializeField] private StateManager StateManager;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private CameraController cameraController;
 
     public void RegenerateLevel()
     {
@@ -13,6 +15,7 @@ public class SectionManager : MonoBehaviour
         {
             section.GenerateSection();
         }
+        //playerController.ResetPlayer();
     }
 
     public void GenerateNewLevel()
@@ -21,5 +24,7 @@ public class SectionManager : MonoBehaviour
         {
             section.GenerateNewSection();
         }
+        //playerController.ResetPlayer();
+
     }
 }

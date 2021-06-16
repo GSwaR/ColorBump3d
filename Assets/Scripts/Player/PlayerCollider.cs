@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class PlayerCollider : MonoBehaviour
 {
-    [SerializeField] private GameObject destroyedBall;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private StateManager stateManager;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Death"))
         {
-            //Instantiate(destroyedBall, gameObject.transform.position, new Quaternion());
-            destroyedBall.SetActive(true);
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            GetComponent<SphereCollider>().enabled = false;
-            GetComponent<MeshRenderer>().enabled = false;
-            Time.timeScale = 0.25f;
+            playerController.DestroyPlayer();
 
+            Time.timeScale = 0.2f;
+            Time.fixedDeltaTime = 0.02f * 0.2f;
+            stateManager.SetState(stateManager.RestartGameState);
         }
     }
 }

@@ -5,12 +5,32 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private new Rigidbody rigidbody;
+    [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private float value;
     [SerializeField] private float fieldWidgth;
     [SerializeField] private float cameraDistance;
+    [SerializeField] private SphereCollider sphereCollider;
+    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private GameObject deathParticles;
 
     private Vector2 lastMousePosition = Vector2.zero;
+
+    public void ResetPlayer()
+    {
+        rigidBody.constraints = RigidbodyConstraints.None;
+        rigidBody.constraints = RigidbodyConstraints.FreezeRotation | RigidbodyConstraints.FreezePositionY;
+        sphereCollider.enabled = true;
+        meshRenderer.enabled = true;
+        deathParticles.SetActive(false);
+    }
+
+    public void DestroyPlayer()
+    {
+        rigidBody.constraints = RigidbodyConstraints.FreezeAll;
+        sphereCollider.enabled = false;
+        meshRenderer.enabled = false;
+        deathParticles.SetActive(true);
+    }
 
     private void FixedUpdate()
     {
@@ -28,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
             Vector3 force = new Vector3(delta.x, 0, delta.y) * value;
 
-            rigidbody.AddForce(force);
+            rigidBody.AddForce(force);
         }
         else
         {

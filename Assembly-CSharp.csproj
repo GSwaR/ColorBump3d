@@ -56,19 +56,21 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\StateModule\StatesTriggers\RestartTrigger.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerCollider.cs" />
-    <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
-    <Compile Include="Assets\Scripts\StateModule\StateManager.cs" />
     <Compile Include="Assets\Scripts\StateModule\State.cs" />
-    <Compile Include="Assets\Scripts\StateModule\StatesLogic\StartGame.cs" />
+    <Compile Include="Assets\Scripts\StateModule\StatesLogic\Restart.cs" />
     <Compile Include="Assets\Scripts\StateModule\StatesTriggers\MouseTrigger.cs" />
     <Compile Include="Assets\Scripts\StateModule\StatesLogic\Game.cs" />
-    <Compile Include="Assets\Scripts\StateModule\StatesLogic\Restart.cs" />
-    <Compile Include="Assets\Scripts\Level\Section.cs" />
     <Compile Include="Assets\Scripts\Level\SectionManager.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Level\Section.cs" />
     <Compile Include="Assets\Scripts\Level\Sections.cs" />
-    <Compile Include="Assets\Scripts\StateModule\StatesTriggers\RestartTrigger.cs" />
+    <Compile Include="Assets\Scripts\StateModule\StatesLogic\StartGame.cs" />
+    <Compile Include="Assets\Scripts\StateModule\StateManager.cs" />
+    <Compile Include="Assets\Scripts\Level\PrefabLogic\SectionPrefab.cs" />
+    <Compile Include="Assets\Scripts\Level\ColorManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

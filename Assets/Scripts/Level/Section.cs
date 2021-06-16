@@ -5,7 +5,7 @@ using UnityEngine;
 public class Section : MonoBehaviour
 {
     [SerializeField] private GameObject sectionPrefab;
-    private GameObject generatedSection;
+    [SerializeField] private GameObject generatedSection;
 
     public void GenerateNewSection()
     {

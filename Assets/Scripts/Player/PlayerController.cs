@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SphereCollider sphereCollider;
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private GameObject deathParticles;
+    [SerializeField] private GameObject trail;
 
     private Vector2 lastMousePosition = Vector2.zero;
 
@@ -22,6 +23,10 @@ public class PlayerController : MonoBehaviour
         sphereCollider.enabled = true;
         meshRenderer.enabled = true;
         deathParticles.SetActive(false);
+        GameObject trail_ = Instantiate(trail, gameObject.transform);
+        Destroy(trail);
+        trail = trail_;
+        trail.SetActive(true);
     }
 
     public void DestroyPlayer()
@@ -30,12 +35,15 @@ public class PlayerController : MonoBehaviour
         sphereCollider.enabled = false;
         meshRenderer.enabled = false;
         deathParticles.SetActive(true);
+        trail.SetActive(false);
+
     }
 
     private void FixedUpdate()
     {
         if (Input.GetMouseButton(0))
         {
+
             Vector2 mousePosition = Input.mousePosition;
 
             if (lastMousePosition == Vector2.zero)
@@ -49,6 +57,7 @@ public class PlayerController : MonoBehaviour
             Vector3 force = new Vector3(delta.x, 0, delta.y) * value;
 
             rigidBody.AddForce(force);
+            //Debug.LogError(force);
         }
         else
         {

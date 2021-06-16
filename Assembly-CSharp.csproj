@@ -61,16 +61,22 @@
     <Compile Include="Assets\Scripts\Player\PlayerCollider.cs" />
     <Compile Include="Assets\Scripts\StateModule\State.cs" />
     <Compile Include="Assets\Scripts\StateModule\StatesLogic\Restart.cs" />
+    <Compile Include="Assets\Scripts\Level\ColorManager.cs" />
+    <Compile Include="Assets\Scripts\Level\ObstaclesDestroyer.cs" />
     <Compile Include="Assets\Scripts\StateModule\StatesTriggers\MouseTrigger.cs" />
+    <Compile Include="Assets\Scripts\Level\PrefabLogic\PrefabColor.cs" />
     <Compile Include="Assets\Scripts\StateModule\StatesLogic\Game.cs" />
     <Compile Include="Assets\Scripts\Level\SectionManager.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Level\PrefabLogic\SectionPrefab.cs" />
     <Compile Include="Assets\Scripts\Level\Section.cs" />
     <Compile Include="Assets\Scripts\Level\Sections.cs" />
     <Compile Include="Assets\Scripts\StateModule\StatesLogic\StartGame.cs" />
     <Compile Include="Assets\Scripts\StateModule\StateManager.cs" />
-    <Compile Include="Assets\Scripts\Level\PrefabLogic\SectionPrefab.cs" />
-    <Compile Include="Assets\Scripts\Level\ColorManager.cs" />
+    <Compile Include="Assets\Scripts\StateModule\StatesLogic\Win.cs" />
+    <Compile Include="Assets\Scripts\StateModule\StatesTriggers\WinTrigger.cs" />
+    <Compile Include="Assets\Scripts\StateModule\StatesTriggers\WinTriggerMouse.cs" />
+    <Compile Include="Assets\Scripts\GameExit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

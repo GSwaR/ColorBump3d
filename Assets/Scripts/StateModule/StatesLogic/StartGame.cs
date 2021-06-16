@@ -10,6 +10,7 @@ public class StartGame : MonoBehaviour
     [SerializeField] private SectionManager sectionManager;
 
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject deathParticles;
     [SerializeField] private PlayerController playerController;
 
     [SerializeField] private CameraController cameraController;
@@ -30,8 +31,10 @@ public class StartGame : MonoBehaviour
         cameraController.enabled = false;
         Camera.main.transform.position = cameraPos;
         player.transform.position = playerPos;
+        player.GetComponent<MeshRenderer>().material.color = colorManager.friendlyColor;
+        deathParticles.GetComponent<ParticleSystemRenderer>().material.color = colorManager.friendlyColor;
 
-        sectionManager.RegenerateLevel();
+        sectionManager.GenerateNewLevel();
 
         startLogic.SetActive(true);
         startGUI.SetActive(true);

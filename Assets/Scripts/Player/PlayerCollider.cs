@@ -18,4 +18,5 @@ public class PlayerCollider : MonoBehaviour
             stateManager.SetState(stateManager.RestartGameState);
         }
     }
+
 }

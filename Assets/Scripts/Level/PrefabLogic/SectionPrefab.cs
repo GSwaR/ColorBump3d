@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class SectionPrefab : MonoBehaviour
 {
-    [SerializeField] private Material[] deadlyMaterials;
-    [SerializeField] private Material[] friendlyMaterials;
-
-    private Color deadlyColor;
-    private Color friendlyColor;
+    public Color deadlyColor;
+    public Color friendlyColor;
 
     public void SetColors(Color deadly, Color friendly)
     {
@@ -16,16 +13,4 @@ public class SectionPrefab : MonoBehaviour
         friendlyColor = friendly;
     }
 
-    public void PaintPrefabs()
-    {
-        foreach(Material material in deadlyMaterials)
-        {
-            material.color = deadlyColor;
-        }
-
-        foreach (Material material in friendlyMaterials)
-        {
-            material.color = friendlyColor;
-        }
-    }
 }

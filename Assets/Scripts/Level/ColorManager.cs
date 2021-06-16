@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +17,7 @@ public class ColorManager : MonoBehaviour
         int friendly = random.Next(0, colors.Length);
         int deadly = random.Next(0, colors.Length);
         int field = random.Next(0, colors.Length);
-        while (friendly == deadly || friendly == deadly)
+        while (friendly == deadly || friendly == field)
         {
             friendly = random.Next(0, colors.Length);
         }

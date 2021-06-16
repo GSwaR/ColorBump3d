@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SectionManager : MonoBehaviour
 {
+    [SerializeField] private Sections sectionsManaging;
     public Section[] Sections;
     [SerializeField] private StateManager StateManager;
     [SerializeField] private PlayerController playerController;
@@ -11,20 +12,20 @@ public class SectionManager : MonoBehaviour
 
     public void RegenerateLevel()
     {
+        sectionsManaging.ResetSelections();
         foreach (Section section in Sections)
         {
             section.GenerateSection();
         }
-        //playerController.ResetPlayer();
     }
 
     public void GenerateNewLevel()
     {
+        sectionsManaging.ResetSelections();
         foreach(Section section in Sections)
         {
             section.GenerateNewSection();
         }
-        //playerController.ResetPlayer();
 
     }
 }

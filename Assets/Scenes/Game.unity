@@ -6104,7 +6104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &947617859
 Transform:
   m_ObjectHideFlags: 0
@@ -6191,6 +6191,10 @@ MonoBehaviour:
   - {fileID: 1210589217154795746, guid: 49f62f3bdb187b84297a0f3efbf0dd61, type: 3}
   - {fileID: 1210589217154795746, guid: d4936bd69effdd14ba0ab96000e4175d, type: 3}
   - {fileID: 1210589217154795746, guid: de0403a3fd250fc4f9a581c7a1db0438, type: 3}
+  - {fileID: 1210589217154795746, guid: 23341236dec1a3040a02395bbb53ca4e, type: 3}
+  - {fileID: 1210589217154795746, guid: f35a9cc612e31f548a6d7ca71937643c, type: 3}
+  - {fileID: 1210589217154795746, guid: cea74162c908b454ba14aeabeadd9f20, type: 3}
+  - {fileID: 1210589217154795746, guid: 413e2af967c04bf41a1d87feedff0dd9, type: 3}
   SelectedSections: 
 --- !u!1 &963194225
 GameObject:
@@ -6892,7 +6896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1268544599
 Transform:
   m_ObjectHideFlags: 0
@@ -6932,6 +6936,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1329486820}
+  - component: {fileID: 1329486821}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6953,6 +6958,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1329486821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329486819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124e4e6fc9d85af46b0ad60f53a8437e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1453562219
 GameObject:
   m_ObjectHideFlags: 0
@@ -12277,6 +12294,9 @@ MonoBehaviour:
   - {fileID: 9533075}
   - {fileID: 973565718}
   - {fileID: 620753635}
+  - {fileID: 947617860}
+  - {fileID: 1852428623}
+  - {fileID: 1268544600}
   StateManager: {fileID: 597795045}
   playerController: {fileID: 1075328499}
   cameraController: {fileID: 963194229}
@@ -12413,7 +12433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1852428622
 Transform:
   m_ObjectHideFlags: 0
